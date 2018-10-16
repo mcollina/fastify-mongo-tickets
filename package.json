@@ -1,6 +1,6 @@
 {
   "name": "@matteo.collina/fastify-mongo-tickets",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Demo ticket service with Fastify and MongoDB",
   "main": "index.js",
   "scripts": {
@@ -27,11 +27,9 @@
     "mongo-clean": "^2.0.0",
     "pre-commit": "^1.2.2",
     "standard": "^12.0.1",
-    "tap": "^12.0.1"
-  },
-  "dependencies": {
     "fastify-jwt": "^0.5.0",
     "fastify-mongodb": "^0.9.0",
-    "fastify-plugin": "^1.2.1"
+    "fastify-plugin": "^1.2.1",
+    "tap": "^12.0.1"
   }
 }

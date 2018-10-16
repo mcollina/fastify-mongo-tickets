@@ -3,7 +3,8 @@
 const Fastify = require('fastify')
 const Tickets = require('.')
 
-const fp = require('fastify-plugin')
+const JWT = require('fastify-jwt')
+const MongoDB = require('fastify-mongodb')
 const clean = require('mongo-clean')
 const { MongoClient } = require('mongodb')
 const { beforeEach, tearDown, test } = require('tap')
@@ -29,26 +30,21 @@ tearDown(async function () {
   }
 })
 
-// Fill in this config with all the configurations
-// needed for testing the application
-function config () {
-  return {
-    auth: {
-      secret: 'averyverylongsecret'
-    },
-    mongodb: {
-      client,
-      database
-    }
-  }
-}
-
 // automatically build and tear down our instance
 function build (t) {
   const app = Fastify()
 
+  app.register(JWT, {
+    secret: 'averyverylongsecret'
+  })
+
+  app.register(MongoDB, {
+    client,
+    database
+  })
+
   // we wrap with fastify-plugin to access jwt signing
-  app.register(fp(Tickets), config())
+  app.register(Tickets)
 
   // tear down our app after we are done
   t.tearDown(app.close.bind(app))

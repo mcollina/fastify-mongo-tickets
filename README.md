@@ -14,20 +14,19 @@ npm i @matteo.collina/fastify-mongo-tickets
 'use strict'
 
 const Fastify = require('fastify')
-const Tickets = require('@matteo.collina/fastify-mongo-tickets')
 
 const app = Fastify()
 
-app.register(Tickets, {
-  auth: {
-    // to fastify-jwt
-    secret: 'averyverylongsecret'
-  },
-  mongodb: {
-    url: 'mongodb://localhost:27017',
-    useNewUrlParser: true
-  }
+app.register(require('fastify-jwt'), {
+  secret: 'averyverylongsecret'
 })
+
+app.register(require('fastify-mongodb'), {
+  url: 'mongodb://localhost:27017',
+  useNewUrlParser: true
+})
+
+app.register(require('@matteo.collina/fastify-mongo-tickets'))
 
 app.listen(3000)
 ```
