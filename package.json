@@ -1,0 +1,37 @@
+{
+  "name": "@matteo.collina/fastify-mongo-tickets",
+  "version": "0.1.0",
+  "description": "Demo ticket service with Fastify and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcollina/fastify-mongo-tickets.git"
+  },
+  "keywords": [
+    "fastify",
+    "mongo",
+    "service",
+    "demo"
+  ],
+  "author": "Matteo Collina <hello@matteocollina.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcollina/fastify-mongo-tickets/issues"
+  },
+  "homepage": "https://github.com/mcollina/fastify-mongo-tickets#readme",
+  "devDependencies": {
+    "fastify": "^1.12.1",
+    "mongo-clean": "^2.0.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^12.0.1",
+    "tap": "^12.0.1"
+  },
+  "dependencies": {
+    "fastify-jwt": "^0.5.0",
+    "fastify-mongodb": "^0.9.0",
+    "fastify-plugin": "^1.2.1"
+  }
+}
