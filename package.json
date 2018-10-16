@@ -1,6 +1,6 @@
 {
   "name": "@matteo.collina/fastify-mongo-tickets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Demo ticket service with Fastify and MongoDB",
   "main": "index.js",
   "scripts": {
