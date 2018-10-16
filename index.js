@@ -13,7 +13,7 @@ module.exports = async function (app, opts) {
     app.register(JWT, opts.auth || opts.jwt)
   }
 
-  app.register(routes, opts)
+  app.register(routes)
 }
 
 module.exports.autoPrefix = '/tickets'
