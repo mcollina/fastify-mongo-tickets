@@ -1,20 +1,11 @@
 'use strict'
 
-const ticketSchema = {
-  type: 'object',
-  properties: {
-    _id: {
-      type: 'string'
-    },
-    title: {
-      type: 'string'
-    },
-    body: {
-      type: 'string'
-    }
-  },
-  required: ['title', 'body']
-}
+const S = require('fluent-schema')
+
+const ticketSchema = S.object()
+  .prop('_id', S.string())
+  .prop('title', S.string().required())
+  .prop('body', S.string().required())
 
 module.exports = async function (app, opts) {
   if (!app.hasRequestDecorator('jwtVerify')) {
@@ -58,15 +49,8 @@ module.exports = async function (app, opts) {
   app.get('/', {
     schema: {
       response: {
-        '2xx': {
-          type: 'object',
-          properties: {
-            tickets: {
-              type: 'array',
-              items: ticketSchema
-            }
-          }
-        }
+        '2xx': S.object()
+          .prop('tickets', S.array().items(ticketSchema))
       }
     }
   }, async function (req, reply) {
