@@ -48,7 +48,7 @@ module.exports = async function (app, opts) {
 
     reply
       .code(201)
-      .header('location', `${this.basePath}/${_id}`)
+      .header('location', `${this.prefix}/${_id}`)
 
     return Object.assign({
       _id
